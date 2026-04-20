@@ -19,10 +19,12 @@ def acender(led, tempo): #Função que acende o led na sua vez
 # Chama a função de estado inicial
 apagar_todos()
 
+#Exibe no terminal que está fazendo um teste
+print("Teste")
 #Funciona em loop infinito, sem necessidade de pausas
 while True:
-    acender(leds[0], 30) #Acende o led vermelho
-    acender(leds[2], 30) #Acende o led verde
-    acender(leds[1], 4) #Acende o led amarelo
+    acender(leds[0], 3) #Acende o led vermelho
+    acender(leds[2], 3) #Acende o led verde
+    acender(leds[1], 2) #Acende o led amarelo
     #Após isso o ciclo se repete voltando a acender o led vermelho.
     print("CICLO_OK")
