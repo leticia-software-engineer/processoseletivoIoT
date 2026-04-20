@@ -24,4 +24,5 @@ while True:
     acender(leds[0], 30) #Acende o led vermelho
     acender(leds[2], 30) #Acende o led verde
     acender(leds[1], 4) #Acende o led amarelo
-    #Após isso o loop se repete voltando a acender o led vermelho.
+    #Após isso o ciclo se repete voltando a acender o led vermelho.
+    print("CICLO_OK")
