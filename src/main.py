@@ -7,19 +7,21 @@ leds = [
     Pin(4, Pin.OUT)    # verde
 ]
 
-def apagar_todos():
+def apagar_todos(): #Função que inicializa os leds apagados
     for led in leds:
-        led.value(0)
+        led.value(0) #Configura o estado baixo
 
-def acender(led, tempo):
-    apagar_todos()
-    led.value(1)
-    time.sleep(tempo)
+def acender(led, tempo): #Função que acende o led na sua vez
+    apagar_todos() #Apaga os leds acesos antes de acender outro led, evitando que dois leds brilhem simultaneamente
+    led.value(1) #Configura o estado alto do led
+    time.sleep(tempo) #Define um delay configurável para que o led fique aceso
 
-# estado inicial
+# Chama a função de estado inicial
 apagar_todos()
 
+#Funciona em loop infinito, sem necessidade de pausas
 while True:
-    acender(leds[0], 5)
-    acender(leds[2], 5)
-    acender(leds[1], 2)
+    acender(leds[0], 30) #Acende o led vermelho
+    acender(leds[2], 30) #Acende o led verde
+    acender(leds[1], 4) #Acende o led amarelo
+    #Após isso o loop se repete voltando a acender o led vermelho.
