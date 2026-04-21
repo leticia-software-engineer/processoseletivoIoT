@@ -78,6 +78,7 @@ Dessa forma é possível acompanhar os ciclos pelo terminal e manter o programa 
 
 Nesse projeto, o ESP32 atua como o controlador central responsável por enviar sinais digitais para os LEDs através dos pinos GPIO.
 Cada LED recebe o sinal que foi passado por um resistor, que limita a corrente elétrica, o que garante mais a integridade do componente.
+
 ---
 
 ## 3️⃣ Componentes Utilizados na Simulação
@@ -118,6 +119,7 @@ O sistema apresentou o comportamento esperado:
 Apenas um LED é aceso por vez, a sequência de funcionamento (vermelho → verde → amarelo) está correta, a temporização é respeitada, a execução não apresentou nenhuma falha, mensagens são exibidas corretamente no terminal e os testes de integração passaram.
 
 Na simulação do Wokwi, por meio do arquivo diagram.json você pode observar claramente o funcionamento do sistema, basta ter os requirements instalados e todos os arquivos deste projeto, clicando na seta verde acima ele executa e pode-se visualizar com exatidão o protótipo e o terminal da solução.
+
 ---
 
 ## 6️⃣ Comentários Adicionais 
@@ -127,5 +129,6 @@ Manipulação de GPIO no ESP32
 Estruturação de firmware em MicroPython: entendi mais sobre como estruturar e organizar um firmware do zero com micropython, tendo total autonomia ao poder escolher tema e organização.
 Simulação de circuitos no Wokwi: aprendi a usar o wokwi com maior facilidade, a desenvolver diagramas por meio dele e fui incentivada a pesquisar e a ser protagonista do meu aprendizado.
 Em suma, foi uma experiência engrandecedora. 
+
 ---
 
