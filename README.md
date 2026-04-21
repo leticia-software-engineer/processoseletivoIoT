@@ -40,7 +40,7 @@ processoseletivoIoT/
 ├── flasher_args.json
 ├── fs.bin
 ├── requirements.txt          # Instala as bibliotecas necessárias para execução do programa
-├── wokwi.toml                #
+├── wokwi.toml                
 └── README.md                 # 📝 Relatório final 
 ```
 ---
@@ -60,7 +60,7 @@ leds = [
 ]
 ```
 
-Também adicipnei duas funções, uma para apagar todos os leds que será ativada no momento da inicialização do semáforo, evitando que ao iniciar existam leds acesos e causem uma certa confusão ao sistema, garantindo que não fique mais de um led aceso simultaneamente no momento da troca, o que evita casos de acidentes de trânsito.
+Também adicionei duas funções, uma para apagar todos os leds que será ativada no momento da inicialização do semáforo, evitando que ao iniciar existam leds acesos e causem uma certa confusão ao sistema, garantindo que não fique mais de um led aceso simultaneamente no momento da troca, o que evita casos de acidentes de trânsito.
 Já a função de acender torna configuravel a mudança do estado baixo(desligado ou 0) para o estado alto(ligado ou 1), bem como o tempo que o led devrá se manter aceso, evitando repetições e otimizando o código. 
 
 Por fim, é utilizado um loop infinito que irá executar aquele código com a função de acender configurada para cada elemento do vetor leds. Como pode ser visto a seguir:
@@ -91,7 +91,7 @@ A placa utilizada foi a ESP32 e os componentes foram: três leds comuns e 3 resi
 3 leds(um vermelho, um amarelo e um verde)
 1 simulador Wokwi
 
-![alt text](image.png)
+<img width="802" height="616" alt="image" src="https://github.com/user-attachments/assets/73866048-5eee-45eb-b824-28572e1c8cd5" />
 
 ---
 
