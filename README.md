@@ -18,7 +18,41 @@ O presente sistema é capaz de acender os leds com um delay de segundos pré det
 
 ## 2️⃣ Arquitetura do Sistema Embarcado
 
-Explique a arquitetura lógica do seu projeto, abordando:
+A arquitetura desse projeto foi dividida em três partes principais:
+
+1. Camada de Hardware (Simulação)
+
+Utilizei o ESP32 como o cérebro do sistema, responsável por processar as informações. Além disso, os LEDs que funcionam como saídas digitais, ou seja, eles são os atuadores que recebem os sinais do ESP32. Para garantir que os LEDs não queimem, também foram usados resistores para limitar a corrente que chega a eles. Toda a ligação desses componentes é definida no arquivo diagram.json, que é como um mapa do nosso sistema no ambiente Wokwi.
+
+2. Camada de Firmware
+
+Aqui está o código que faz o sistema funcionar. Ele está localizado no arquivo src/main.py e é responsável por configurar os pinos do ESP32, controlar o estado dos LEDs e gerenciar o tempo. O sistema roda em um loop contínuo, garantindo que tudo funcione corretamente. Utilizei duas bibliotecas importantes: a “machine” para controlar os pinos do ESP32 e a “time” para lidar com o tempo. Os LEDs são organizados em uma lista para facilitar o controle:
+
+leds = [
+
+Pin(22, Pin.OUT),  # vermelho
+
+Pin(19, Pin.OUT),  # amarelo
+
+Pin(4, Pin.OUT)    # verde
+
+]
+
+3. Camada de Controle (Loop Principal)
+
+O loop principal que faz tudo funcionar em ciclo:
+
+while True:
+
+acender(leds[0], 3)
+
+acender(leds[2], 3)
+
+acender(leds[1], 2)
+
+print("CICLO_OK")
+
+Essa parte define como o sistema se comportará em um ciclo contínuo, simulando o funcionamento de um semáforo real.
 
 A arquitetura lógica do projeto está disposta na seguinte estrutura:
 
@@ -26,22 +60,22 @@ A arquitetura lógica do projeto está disposta na seguinte estrutura:
 processoseletivoIoT/
 ├── .github/
 │   └── workflows/
-│       └── ci.yml            
-├── .devcontainer/            
+│       └── ci.yml            # Pipeline de integração contínua        
+├── .devcontainer/            # Ambiente de desenvolvimento padronizado
 │   └── devcontainer.json
 ├── binaries
-│   └── bootloader.bin
-│   └── micropython.bin
-│   └── partition-table.bin
+│   └── bootloader.bin        # Inicialização do ESP32
+│   └── micropython.bin       # Firmware base MicroPython
+│   └── partition-table.bin   # Tabela de partições da memória
 ├── src/                   
-│   └── main.py               # 📄Firmware do semáforo
-├── diagram.json              # ⚡Modelo do sistema projetado com Wokwi
-├── Dockerfile
-├── flasher_args.json
-├── fs.bin
+│   └── main.py               # Firmware do semáforo
+├── diagram.json              # Circuito no Wokwi
+├── Dockerfile                # Geração do sistema de arquivos
+├── flasher_args.json         # Configuração de gravação na flash
+├── fs.bin                    # Sistema de arquivos do ESP32
 ├── requirements.txt          # Instala as bibliotecas necessárias para execução do programa
-├── wokwi.toml                
-└── README.md                 # 📝 Relatório final 
+├── wokwi.toml                # Configuração da simulação 
+└── README.md                 # Relatório final
 ```
 ---
 
