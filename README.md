@@ -22,21 +22,11 @@ A arquitetura desse projeto foi dividida em três partes principais:
 
 1. Camada de Hardware (Simulação)
 
-Utilizei o ESP32 como o cérebro do sistema, responsável por processar as informações. Além disso, os LEDs que funcionam como saídas digitais, ou seja, eles são os atuadores que recebem os sinais do ESP32. Para garantir que os LEDs não queimem, também foram usados resistores para limitar a corrente que chega a eles. Toda a ligação desses componentes é definida no arquivo diagram.json, que é como um mapa do nosso sistema no ambiente Wokwi.
+Utilizei o ESP32, responsável por processar as informações. Além disso, os LEDs que funcionam como saídas digitais, ou seja, eles são os atuadores que recebem os sinais do ESP32. Para garantir que os LEDs não queimem, também foram usados resistores para limitar a corrente que chega a eles. Toda a ligação desses componentes é definida no arquivo diagram.json, que é como um mapa do nosso sistema no ambiente Wokwi.
 
 2. Camada de Firmware
 
-Aqui está o código que faz o sistema funcionar. Ele está localizado no arquivo src/main.py e é responsável por configurar os pinos do ESP32, controlar o estado dos LEDs e gerenciar o tempo. O sistema roda em um loop contínuo, garantindo que tudo funcione corretamente. Utilizei duas bibliotecas importantes: a “machine” para controlar os pinos do ESP32 e a “time” para lidar com o tempo. Os LEDs são organizados em uma lista para facilitar o controle:
-
-leds = [
-
-Pin(22, Pin.OUT),  # vermelho
-
-Pin(19, Pin.OUT),  # amarelo
-
-Pin(4, Pin.OUT)    # verde
-
-]
+O código principal que faz o diagrama funcionar está localizado no arquivo src/main.py e é responsável por configurar os pinos do ESP32, controlar o estado dos LEDs e gerenciar o tempo. O sistema roda em um loop contínuo, garantindo que tudo funcione corretamente. Os LEDs são organizados em uma lista para facilitar o controle.
 
 3. Camada de Controle (Loop Principal)
 
@@ -117,8 +107,6 @@ Cada LED recebe o sinal que foi passado por um resistor, que limita a corrente e
 
 ## 3️⃣ Componentes Utilizados na Simulação
 
-Liste os principais componentes definidos no `diagram.json`, por exemplo:
-
 A placa utilizada foi a ESP32 e os componentes foram: três leds comuns e 3 resistores com 220 Ω cada, valor frequentemente utilizado para lâmpadas led. Veja a seguir de maneira mais ilustrativa:
 
 1 placa ESP32
@@ -142,13 +130,6 @@ Por último, mas não menos importante, acabei precisando reduzir o delay de 30,
 ---
 
 ## 5️⃣ Resultados Obtidos
-
-Descreva o comportamento final do sistema:
-
-- O que funciona corretamente  
-- Quais requisitos foram atendidos  
-- Resultado observado na simulação do Wokwi  
-O sistema apresentou o comportamento esperado:
 
 Apenas um LED é aceso por vez, a sequência de funcionamento (vermelho → verde → amarelo) está correta, a temporização é respeitada, a execução não apresentou nenhuma falha, mensagens são exibidas corretamente no terminal e os testes de integração passaram.
 
